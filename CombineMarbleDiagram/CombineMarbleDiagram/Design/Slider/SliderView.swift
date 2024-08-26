@@ -12,8 +12,13 @@ struct SliderView: View {
     
     var body: some View {
         GeometryReader { geometry in
+            let totalWidth: CGFloat = geometry.size.width
+            let viewHeight: CGFloat = geometry.size.height
+            let centerY: CGFloat = viewHeight / 2
+            
+            
             ZStack(alignment: .center) {
-                SliderLineView(lineWidth: 2)
+                SliderLineView(totalWidth: totalWidth, lineWidth: 2)
                 ForEach(nodes) { node in
                     SliderNodeView(color: .blue)
                 }
