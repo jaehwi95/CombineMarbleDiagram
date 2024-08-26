@@ -7,18 +7,18 @@
 
 import Foundation
 
-final class DetailViewModel: ObservableObject {
-    struct State {
-        
-    }
-    
-    @Published private(set) var state: State = State()
-    
+class DetailViewModel: ObservableObject {
     enum Action {
         
     }
     
-    func process(_ action: Action) {
+    let operatorItem: Operator
+    
+    init(operatorItem: Operator) {
+        self.operatorItem = operatorItem
+    }
+    
+    func send(_ action: Action) {
         switch action {
             
         }

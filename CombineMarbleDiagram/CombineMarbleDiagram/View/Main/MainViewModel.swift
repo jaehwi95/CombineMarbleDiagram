@@ -7,18 +7,25 @@
 
 import Foundation
 
+@MainActor
 final class MainViewModel: ObservableObject {
     enum Action {
         case loadData
         case loading(Bool)
-        case getDataSuccess
-        case getDataFailure(Error)
+        case addEmptyOperator
+        case showError(Error)
     }
     
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     @Published var operators: [Operator] = []
+    
+    private var container: DIContainer
     private var loadDataTask: Task<Void, Never>?
+    
+    init(container: DIContainer) {
+        self.container = container
+    }
     
     func send(_ action: Action) {
         switch action {
@@ -28,10 +35,10 @@ final class MainViewModel: ObservableObject {
             Task {
                 await toggleLoading(isLoading)
             }
-        case .getDataSuccess:
-            return
-        case .getDataFailure(_):
-            return
+        case .addEmptyOperator:
+            addEmptyOperator()
+        case .showError(let error):
+            print("Error: \(error.localizedDescription)")
         }
     }
     
@@ -46,26 +53,37 @@ extension MainViewModel {
             defer {
                 send(.loading(false))
             }
-            do {
-                send(.loading(true))
-                let _ = try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
-                send(.getDataSuccess)
-            } catch {
-                send(.getDataFailure(error))
+            send(.loading(true))
+            let result = await container.services.operatorService.getAllOperators()
+            switch result {
+            case let .success(operators):
+                self.operators = operators
+            case let .failure(error):
+                send(.showError(error))
             }
         }
     }
     
-    private func populateOperators() async {
-        
+    private func addEmptyOperator() {
+        loadDataTask = Task {
+            defer {
+                send(.loading(false))
+            }
+            send(.loading(true))
+            let result = await container.services.operatorService.addEmptyOperator()
+            switch result {
+            case .success:
+                print("Empty Operator Added")
+            case let .failure(error):
+                send(.showError(error))
+            }
+        }
     }
     
-    @MainActor
     private func toggleLoading(_ isLoading: Bool) async {
         self.isLoading = isLoading
     }
     
-    @MainActor
     private func getDataFailure(_ error: Error) {
         self.errorMessage = "Error: \(error.localizedDescription)"
     }

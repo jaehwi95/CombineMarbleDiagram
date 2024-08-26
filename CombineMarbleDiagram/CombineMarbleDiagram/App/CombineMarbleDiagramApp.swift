@@ -6,29 +6,22 @@
 //
 
 import SwiftUI
-import FirebaseCore
-
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        FirebaseApp.configure()
-        return true
-    }
-}
 
 @main
 struct CombineMarbleDiagramApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @State private var destinations: [NavigationDestination] = []
+    @StateObject var container: DIContainer = DIContainer(services: Services())
     
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $destinations) {
-                MainView(viewModel: .init())
+                MainView(viewModel: MainViewModel(container: container))
+                    .environmentObject(container)
                     .navigationDestination(for: NavigationDestination.self) { destination in
                         switch destination {
-                        case .detail:
-                            DetailView(viewModel: DetailViewModel())
+                        case .detail(let operatorItem):
+                            DetailView(viewModel: DetailViewModel(operatorItem: operatorItem))
                         }
                     }
             }

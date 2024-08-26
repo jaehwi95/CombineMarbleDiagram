@@ -13,9 +13,25 @@ struct MainView: View {
         
     var body: some View {
         List(viewModel.operators, id: \.self) { operatorItem in
-            HStack {
-                
+            Button(
+                action: {
+                    navigate(.push(.detail(operatorItem)))
+                },
+                label: {
+                    Text("\(operatorItem.title)")
+                }
+            )
+        }
+        Button(
+            action: {
+                viewModel.send(.addEmptyOperator)
+            },
+            label: {
+                Text("Add Empty")
             }
+        )
+        .onAppear {
+            viewModel.send(.loadData)
         }
         .navigationTitle("Combine Marbles")
         .navigationBarTitleDisplayMode(.automatic)
@@ -24,6 +40,12 @@ struct MainView: View {
 
 #Preview {
     NavigationStack {
-        MainView(viewModel: MainViewModel())
+        MainView(
+            viewModel: MainViewModel(
+                container: DIContainer(
+                    services: Services()
+                )
+            )
+        )
     }
 }

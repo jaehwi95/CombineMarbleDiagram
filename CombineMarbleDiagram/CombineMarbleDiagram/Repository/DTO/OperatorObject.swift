@@ -7,29 +7,20 @@
 
 import Foundation
 
-struct OperatorObject: Codable {
-    var id: String
-    var name: String
-    var type: String
+struct OperatorObject: Codable, DictionaryCodable {
+    let id: String
+    let title: String
+    let name: String
+    let operatorType: String
 }
 
 extension OperatorObject {
     func toModel() -> Operator {
-        let operatorType: OperatorType = {
-            switch self.type {
-            case OperatorTypeValue.Mapping:
-                return .mapping
-            case OperatorTypeValue.Filtering:
-                return .filtering
-            default:
-                return .mapping
-            }
-        }()
-        
-        return .init(
+        return Operator(
             id: id,
+            title: title,
             name: name,
-            type: operatorType
+            type: OperatorType(rawValue: operatorType) ?? .other
         )
     }
 }

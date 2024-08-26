@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum OperatorType {
-    case mapping
-    case filtering
+enum OperatorType: String {
+    case mapping, filtering, other
 }
 
 struct Operator: Hashable {
     var id: String
+    var title: String
     var name: String
     var type: OperatorType
 }

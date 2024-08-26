@@ -8,5 +8,5 @@
 import Foundation
 
 enum NavigationDestination: Hashable {
-    case detail
+    case detail(Operator)
 }
