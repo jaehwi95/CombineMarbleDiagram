@@ -11,13 +11,22 @@ struct DetailView: View {
     @Environment(\.navigate) private var navigate
     @StateObject var viewModel: DetailViewModel
     
+    @State private var nodes: [SliderNodeModel] = []
+    
     var body: some View {
         VStack {
-            SliderView(nodes: .constant([
-                SliderNode(color: .blue, text: "1", position: 0),
-                SliderNode(color: .blue, text: "2", position: 50),
-                SliderNode(color: .blue, text: "3", position: 100)
-            ]))
+            SliderView(nodes: $nodes)
+                .frame(height: 60)
+            Button(
+                action: {
+                    addNode()
+                },
+                label: {
+                    Text("Add Node")
+                }
+            )
+            
+//            CustomSliderView()
             Text("Detail View")
             Button(
                 action: {
@@ -28,6 +37,25 @@ struct DetailView: View {
                 }
             )
         }
+    }
+    
+    func addNode() {
+        let newNode = SliderNodeModel(
+            color: Color.random(),
+            text: "",
+            positionScale: 0
+        )
+        nodes.append(newNode)
+    }
+}
+
+public extension Color {
+    static func random() -> Color {
+        Color(
+            red: .random(in: 0...1),
+            green: .random(in: 0...1),
+            blue: .random(in: 0...1)
+        )
     }
 }
 

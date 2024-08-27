@@ -34,7 +34,10 @@
 		EB79C88B2C7C5B2400DDE3F2 /* SliderNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB79C88A2C7C5B2400DDE3F2 /* SliderNodeView.swift */; };
 		EB79C88D2C7C5F8900DDE3F2 /* SliderLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB79C88C2C7C5F8900DDE3F2 /* SliderLineView.swift */; };
 		EB79C88F2C7C637E00DDE3F2 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB79C88E2C7C637E00DDE3F2 /* SliderView.swift */; };
-		EB79C8912C7C63D500DDE3F2 /* SliderNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB79C8902C7C63D500DDE3F2 /* SliderNode.swift */; };
+		EB79C8912C7C63D500DDE3F2 /* SliderNodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB79C8902C7C63D500DDE3F2 /* SliderNodeModel.swift */; };
+		EB79C8992C7D600E00DDE3F2 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB79C8982C7D600E00DDE3F2 /* CustomSlider.swift */; };
+		EB79C89B2C7D891600DDE3F2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB79C89A2C7D891600DDE3F2 /* Color+Extension.swift */; };
+		EB79C89D2C7D894B00DDE3F2 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB79C89C2C7D894B00DDE3F2 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +67,10 @@
 		EB79C88A2C7C5B2400DDE3F2 /* SliderNodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderNodeView.swift; sourceTree = "<group>"; };
 		EB79C88C2C7C5F8900DDE3F2 /* SliderLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderLineView.swift; sourceTree = "<group>"; };
 		EB79C88E2C7C637E00DDE3F2 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
-		EB79C8902C7C63D500DDE3F2 /* SliderNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderNode.swift; sourceTree = "<group>"; };
+		EB79C8902C7C63D500DDE3F2 /* SliderNodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderNodeModel.swift; sourceTree = "<group>"; };
+		EB79C8982C7D600E00DDE3F2 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		EB79C89A2C7D891600DDE3F2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		EB79C89C2C7D894B00DDE3F2 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +130,7 @@
 			children = (
 				19CF56222C7A0EDD00FBC519 /* GoogleService-Info.plist */,
 				19CF55FC2C79E57600FBC519 /* Assets.xcassets */,
+				EB79C89C2C7D894B00DDE3F2 /* Colors.xcassets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -168,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				19CF56182C79FE3F00FBC519 /* View+Extension.swift */,
+				EB79C89A2C7D891600DDE3F2 /* Color+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -249,10 +257,11 @@
 		EB79C8872C7C5B0600DDE3F2 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
-				EB79C8902C7C63D500DDE3F2 /* SliderNode.swift */,
+				EB79C8902C7C63D500DDE3F2 /* SliderNodeModel.swift */,
 				EB79C88A2C7C5B2400DDE3F2 /* SliderNodeView.swift */,
 				EB79C88C2C7C5F8900DDE3F2 /* SliderLineView.swift */,
 				EB79C88E2C7C637E00DDE3F2 /* SliderView.swift */,
+				EB79C8982C7D600E00DDE3F2 /* CustomSlider.swift */,
 			);
 			path = Slider;
 			sourceTree = "<group>";
@@ -323,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19CF56002C79E57600FBC519 /* Preview Assets.xcassets in Resources */,
+				EB79C89D2C7D894B00DDE3F2 /* Colors.xcassets in Resources */,
 				19CF55FD2C79E57600FBC519 /* Assets.xcassets in Resources */,
 				19CF56232C7A0EDD00FBC519 /* GoogleService-Info.plist in Resources */,
 			);
@@ -336,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19CF562B2C7B987D00FBC519 /* OperatorDBRepository.swift in Sources */,
+				EB79C89B2C7D891600DDE3F2 /* Color+Extension.swift in Sources */,
 				EB79C88D2C7C5F8900DDE3F2 /* SliderLineView.swift in Sources */,
 				19CF55FB2C79E57500FBC519 /* MainView.swift in Sources */,
 				19CF56132C79F63500FBC519 /* NavigationDestination.swift in Sources */,
@@ -354,8 +365,9 @@
 				19CF561C2C7A09D400FBC519 /* Operator.swift in Sources */,
 				EB79C87D2C7C13D800DDE3F2 /* Services.swift in Sources */,
 				EB79C88B2C7C5B2400DDE3F2 /* SliderNodeView.swift in Sources */,
+				EB79C8992C7D600E00DDE3F2 /* CustomSlider.swift in Sources */,
 				19CF56292C7B983800FBC519 /* OperatorObject.swift in Sources */,
-				EB79C8912C7C63D500DDE3F2 /* SliderNode.swift in Sources */,
+				EB79C8912C7C63D500DDE3F2 /* SliderNodeModel.swift in Sources */,
 				EB79C8812C7C181400DDE3F2 /* DIContainer.swift in Sources */,
 				19CF56162C79FB8400FBC519 /* NavigationAction.swift in Sources */,
 			);

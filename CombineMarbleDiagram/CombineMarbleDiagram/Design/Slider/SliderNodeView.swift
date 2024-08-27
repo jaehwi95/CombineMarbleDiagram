@@ -10,23 +10,31 @@ import SwiftUI
 struct SliderNodeView: View {
     let color: Color?
     let text: String?
-    let size: CGFloat?
     
-    init(color: Color?, text: String? = nil, size: CGFloat? = nil) {
+    init(color: Color?, text: String? = nil) {
         self.color = color
         self.text = text ?? ""
-        self.size = size ?? 30
     }
     
     var body: some View {
-        Circle()
-            .stroke(.black, lineWidth: 2)
-            .background(Circle().fill(.blue))
-            .frame(width: self.size, height: self.size)
-            .foregroundStyle(self.color ?? .blue)
+        ZStack {
+            Circle()
+                .stroke(.black, lineWidth: 2)
+                .frame(width: 30, height: 30)
+                .background(Circle().fill(self.color ?? .blue))
+            if let text = text, !text.isEmpty {
+                Text(text)
+                    .font(.body)
+                    .foregroundStyle(Color.black)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+                    .padding(4)
+                    .frame(width: 30, height: 30)
+            }
+        }
     }
 }
 
 #Preview {
-    SliderNodeView(color: .blue)
+    SliderNodeView(color: .red, text: "3")
 }
