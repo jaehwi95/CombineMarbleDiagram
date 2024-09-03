@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19488AAC2C84AE7400E35D5D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19488AAB2C84AE7400E35D5D /* Color+Extension.swift */; };
+		19488AAE2C84B02100E35D5D /* MapOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19488AAD2C84B02100E35D5D /* MapOperationView.swift */; };
 		19CF55F92C79E57500FBC519 /* CombineMarbleDiagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CF55F82C79E57500FBC519 /* CombineMarbleDiagramApp.swift */; };
 		19CF55FB2C79E57500FBC519 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CF55FA2C79E57500FBC519 /* MainView.swift */; };
 		19CF55FD2C79E57600FBC519 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19CF55FC2C79E57600FBC519 /* Assets.xcassets */; };
@@ -36,11 +38,12 @@
 		EB79C88F2C7C637E00DDE3F2 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB79C88E2C7C637E00DDE3F2 /* SliderView.swift */; };
 		EB79C8912C7C63D500DDE3F2 /* SliderNodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB79C8902C7C63D500DDE3F2 /* SliderNodeModel.swift */; };
 		EB79C8992C7D600E00DDE3F2 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB79C8982C7D600E00DDE3F2 /* CustomSlider.swift */; };
-		EB79C89B2C7D891600DDE3F2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB79C89A2C7D891600DDE3F2 /* Color+Extension.swift */; };
 		EB79C89D2C7D894B00DDE3F2 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB79C89C2C7D894B00DDE3F2 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19488AAB2C84AE7400E35D5D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		19488AAD2C84B02100E35D5D /* MapOperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapOperationView.swift; sourceTree = "<group>"; };
 		19CF55F52C79E57500FBC519 /* CombineMarbleDiagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineMarbleDiagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19CF55F82C79E57500FBC519 /* CombineMarbleDiagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineMarbleDiagramApp.swift; sourceTree = "<group>"; };
 		19CF55FA2C79E57500FBC519 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -69,7 +72,6 @@
 		EB79C88E2C7C637E00DDE3F2 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		EB79C8902C7C63D500DDE3F2 /* SliderNodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderNodeModel.swift; sourceTree = "<group>"; };
 		EB79C8982C7D600E00DDE3F2 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
-		EB79C89A2C7D891600DDE3F2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		EB79C89C2C7D894B00DDE3F2 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19488AA92C84AD7C00E35D5D /* Operator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Operator;
+			sourceTree = "<group>";
+		};
 		19CF55EC2C79E57500FBC519 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +147,7 @@
 		19CF56072C79E8AC00FBC519 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				19488AA92C84AD7C00E35D5D /* Operator */,
 				19CF56142C79F80D00FBC519 /* Main */,
 				19CF560D2C79F58F00FBC519 /* Detail */,
 			);
@@ -158,6 +168,7 @@
 			children = (
 				19CF560E2C79F59D00FBC519 /* DetailView.swift */,
 				19CF56102C79F5DE00FBC519 /* DetailViewModel.swift */,
+				19488AAD2C84B02100E35D5D /* MapOperationView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -175,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				19CF56182C79FE3F00FBC519 /* View+Extension.swift */,
-				EB79C89A2C7D891600DDE3F2 /* Color+Extension.swift */,
+				19488AAB2C84AE7400E35D5D /* Color+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -346,7 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19CF562B2C7B987D00FBC519 /* OperatorDBRepository.swift in Sources */,
-				EB79C89B2C7D891600DDE3F2 /* Color+Extension.swift in Sources */,
+				19488AAC2C84AE7400E35D5D /* Color+Extension.swift in Sources */,
 				EB79C88D2C7C5F8900DDE3F2 /* SliderLineView.swift in Sources */,
 				19CF55FB2C79E57500FBC519 /* MainView.swift in Sources */,
 				19CF56132C79F63500FBC519 /* NavigationDestination.swift in Sources */,
@@ -364,6 +375,7 @@
 				EB79C88F2C7C637E00DDE3F2 /* SliderView.swift in Sources */,
 				19CF561C2C7A09D400FBC519 /* Operator.swift in Sources */,
 				EB79C87D2C7C13D800DDE3F2 /* Services.swift in Sources */,
+				19488AAE2C84B02100E35D5D /* MapOperationView.swift in Sources */,
 				EB79C88B2C7C5B2400DDE3F2 /* SliderNodeView.swift in Sources */,
 				EB79C8992C7D600E00DDE3F2 /* CustomSlider.swift in Sources */,
 				19CF56292C7B983800FBC519 /* OperatorObject.swift in Sources */,

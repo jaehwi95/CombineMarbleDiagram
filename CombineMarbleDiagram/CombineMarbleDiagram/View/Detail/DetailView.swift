@@ -37,6 +37,7 @@ struct DetailView: View {
                 }
             )
         }
+        .padding(.horizontal, 20)
     }
     
     func addNode() {

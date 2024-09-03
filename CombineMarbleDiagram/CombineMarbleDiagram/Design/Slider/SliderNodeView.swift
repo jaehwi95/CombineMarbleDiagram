@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct SliderNodeView: View {
-    let color: Color?
-    let text: String?
+    private let color: Color?
+    private let text: String?
+    private let isSelected: Bool
     
-    init(color: Color?, text: String? = nil) {
+    init(color: Color?, text: String? = nil, isSelected: Bool = false) {
         self.color = color
-        self.text = text ?? ""
+        self.text = text
+        self.isSelected = isSelected
     }
     
     var body: some View {
@@ -32,9 +34,10 @@ struct SliderNodeView: View {
                     .frame(width: 30, height: 30)
             }
         }
+        .scaleEffect(isSelected ? 1.2 : 1.0)
     }
 }
 
 #Preview {
-    SliderNodeView(color: .red, text: "3")
+    SliderNodeView(color: .marbleRed, text: "3")
 }

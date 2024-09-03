@@ -17,20 +17,24 @@ struct SliderView: View {
             ZStack {
                 SliderLineView(lineWidth: 2)
                 ForEach($nodes, id: \.id) { $node in
-                    SliderNodeView(color: isDragging ? Color.gray : node.color)
-                        .position(x: maxDraggableWidth * node.positionScale, y: 30)
-                        .gesture(
-                            DragGesture()
-                                .onChanged { dragGestureValue in
-                                    isDragging = true
-                                    let newValue = min(max(0, dragGestureValue.location.x / maxDraggableWidth), 1)
-                                    node.positionScale = newValue
-                                }
-                                .onEnded { _ in
-                                    isDragging = false
-                                }
-                        )
-                        .animation(.easeInOut, value: node.positionScale)
+                    SliderNodeView(
+                        color: isDragging ? Color.gray : node.color,
+                        text: node.text,
+                        isSelected: node.isSelected
+                    )
+                    .position(x: maxDraggableWidth * node.positionScale, y: 30)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { dragGestureValue in
+                                node.isSelected = true
+                                let newValue = min(max(0, dragGestureValue.location.x / maxDraggableWidth), 1)
+                                node.positionScale = newValue
+                            }
+                            .onEnded { _ in
+                                node.isSelected = false
+                            }
+                    )
+                    .animation(.easeInOut, value: node.positionScale)
                 }
             }
         }
@@ -39,7 +43,16 @@ struct SliderView: View {
 }
 
 #Preview {
-    SliderView(nodes: .constant([
-        SliderNodeModel(color: .red, text: "1", positionScale: 0.5),
-    ]))
+    SliderView(
+        nodes: .constant([
+            SliderNodeModel(
+                color: .marbleRed,
+                text: "1",
+                positionScale: 0.5),
+            SliderNodeModel(
+                color: .marbleBlue,
+                text: "1",
+                positionScale: 0.9),
+        ])
+    )
 }

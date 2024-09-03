@@ -2,28 +2,19 @@
 //  Color+Extension.swift
 //  CombineMarbleDiagram
 //
-//  Created by Jaehwi Kim on 2024/08/27.
+//  Created by Jaehwi Kim on 9/1/24.
 //
 
 import SwiftUI
 
 extension Color {
-    static let bgWh: Color = .init("bg-wh")
-    static let bk2Fix: Color = .init("bk-2-fix")
-    static let bkText: Color = .init("bk-text")
-    static let blackFix: Color = .init("black-fix")
-    static let chatBg: Color = .init("chat-bg")
-    static let chatColorMe: Color = .init("chat-color-me")
-    static let chatColorOther: Color = .init("chat-color-other")
-    static let chatNotice: Color = .init("chat-notice")
-    static let coralBg: Color = .init("coral_bg")
-    static let greyCool: Color = .init("grey-cool")
-    static let greyDeep: Color = .init("grey-deep")
-    static let greyFix: Color = .init("grey-fix")
-    static let greyLightVer2: Color = .init("grey-light-ver2")
-    static let greyLight: Color = .init("grey-light")
-    static let lineAppColor: Color = .init("line-app-color")
-    static let mintBg: Color = .init("mint_bg")
-    static let skyBg: Color = .init("sky_bg")
-    static let whiteFix: Color = .init("white-fix")
+    enum MarbleColors {
+        static var blue: Color = .marbleBlue
+        static var pink: Color = .marblePink
+        static var purple: Color = .marblePurple
+        static var red: Color = .marbleRed
+        static var turquois: Color = .marbleTurquois
+        static var white: Color = .marbleWhite
+        static var yellow: Color = .marbleYellow
+    }
 }
