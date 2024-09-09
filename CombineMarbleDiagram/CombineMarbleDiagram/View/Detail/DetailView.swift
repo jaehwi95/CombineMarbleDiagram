@@ -11,52 +11,27 @@ struct DetailView: View {
     @Environment(\.navigate) private var navigate
     @StateObject var viewModel: DetailViewModel
     
-    @State private var nodes: [SliderNodeModel] = []
-    
     var body: some View {
         VStack {
-            SliderView(nodes: $nodes)
-                .frame(height: 60)
-            Button(
-                action: {
-                    addNode()
-                },
-                label: {
-                    Text("Add Node")
-                }
-            )
-            
-//            CustomSliderView()
-            Text("Detail View")
-            Button(
-                action: {
-                    navigate(.pop)
-                },
-                label: {
-                    Text("\(viewModel.operatorItem.name)")
-                }
-            )
+            SliderView(nodes: $viewModel.nodes)
+            HStack(spacing: 0) {
+                Text(".map { $0 x ")
+                TextField("", text: $viewModel.multiplier)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(viewModel.isValid ? Color.gray : Color.red, lineWidth: 1)
+                    }
+                    .frame(width: 40)
+                    .onChange(of: viewModel.multiplier) { newValue in
+                        viewModel.send(.validateInput(newInputString: newValue))
+                    }
+                Text(" }")
+            }
+            SliderResult(nodes: $viewModel.mappedNodes)
         }
         .padding(.horizontal, 20)
-    }
-    
-    func addNode() {
-        let newNode = SliderNodeModel(
-            color: Color.random(),
-            text: "",
-            positionScale: 0
-        )
-        nodes.append(newNode)
-    }
-}
-
-public extension Color {
-    static func random() -> Color {
-        Color(
-            red: .random(in: 0...1),
-            green: .random(in: 0...1),
-            blue: .random(in: 0...1)
-        )
     }
 }
 

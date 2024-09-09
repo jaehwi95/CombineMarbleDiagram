@@ -11,7 +11,7 @@ struct SliderNodeModel: Identifiable {
     let id: UUID = UUID()
     let color: Color
     let text: String
-    let isSelected: Bool
+    var isSelected: Bool
     // Value between 0 and 1 representing position on the slider
     var positionScale: CGFloat
     

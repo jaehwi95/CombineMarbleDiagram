@@ -58,6 +58,7 @@ extension MainViewModel {
             switch result {
             case let .success(operators):
                 self.operators = operators
+                sortOperators()
             case let .failure(error):
                 send(.showError(error))
             }
@@ -86,5 +87,12 @@ extension MainViewModel {
     
     private func getDataFailure(_ error: Error) {
         self.errorMessage = "Error: \(error.localizedDescription)"
+    }
+    
+    private func sortOperators() {
+        let sortedOperators = operators.sorted {
+            $0.title < $1.title
+        }
+        operators = sortedOperators
     }
 }

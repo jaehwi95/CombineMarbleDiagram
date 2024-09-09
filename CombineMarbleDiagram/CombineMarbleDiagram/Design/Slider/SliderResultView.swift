@@ -1,15 +1,14 @@
 //
-//  SliderView.swift
+//  SliderResultView.swift
 //  CombineMarbleDiagram
 //
-//  Created by Jaehwi Kim on 2024/08/26.
+//  Created by Jaehwi Kim on 9/7/24.
 //
 
 import SwiftUI
 
-struct SliderView: View {
+struct SliderResult: View {
     @Binding var nodes: [SliderNodeModel]
-    @State private var isDragging = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -23,17 +22,6 @@ struct SliderView: View {
                         isSelected: nodes[index].isSelected
                     )
                     .position(x: maxDraggableWidth * nodes[index].positionScale, y: 30)
-                    .gesture(
-                        DragGesture()
-                            .onChanged { dragGestureValue in
-                                nodes[index].isSelected = true
-                                let newValue = min(max(0, dragGestureValue.location.x / maxDraggableWidth), 1)
-                                nodes[index].positionScale = newValue
-                            }
-                            .onEnded { _ in
-                                nodes[index].isSelected = false
-                            }
-                    )
                 }
             }
         }
@@ -46,18 +34,14 @@ struct SliderView: View {
         SliderNodeModel(
             color: .marbleRed,
             text: "1",
-            positionScale: 0.1),
-        SliderNodeModel(
-            color: .marbleYellow,
-            text: "2",
-            positionScale: 0.4),
+            positionScale: 0.5),
         SliderNodeModel(
             color: .marbleBlue,
-            text: "3",
+            text: "1",
             positionScale: 0.9)
     ]
     
-    return SliderView(
+    return SliderResult(
         nodes: $sliderNodeModels
     )
 }
